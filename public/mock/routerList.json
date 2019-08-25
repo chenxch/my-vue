@@ -1,0 +1,17 @@
+[{
+  "name": "Xc",
+  "children": null,
+  "path": "/Xc",
+  "meta": {
+    "title": "Xc"
+  }
+},
+{
+  "name": "About",
+  "children": null,
+  "path": "/About",
+  "meta": {
+    "title": "About"
+  }
+}
+]
