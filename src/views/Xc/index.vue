@@ -4,11 +4,11 @@
  * @Author: chenxch
  * @Date: 2019-08-22 23:02:53
  * @LastEditors: chenxch
- * @LastEditTime: 2019-08-23 00:29:07
+ * @LastEditTime: 2019-09-10 09:57:29
  -->
 <template>
   <div>
-    xxxxxxxxxxxxxxxx
+    这是动态路由
   </div>
 </template>
 

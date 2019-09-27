@@ -13,5 +13,21 @@
   "meta": {
     "title": "About"
   }
+},
+{
+  "name": "Grafana",
+  "children": null,
+  "path": "/Grafana",
+  "meta": {
+    "title": "Grafana"
+  }
+},
+{
+  "name": "Grafana2",
+  "children": null,
+  "path": "/Grafana2",
+  "meta": {
+    "title": "Grafana2"
+  }
 }
 ]
