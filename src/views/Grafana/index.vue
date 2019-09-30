@@ -4,11 +4,11 @@
  * @Author: chenxch
  * @Date: 2019-08-22 23:02:53
  * @LastEditors: chenxch
- * @LastEditTime: 2019-09-10 15:49:08
+ * @LastEditTime: 2019-09-30 15:20:19
  -->
 <template>
   <div>
-    <iframe src='http://121.196.204.61:3000/d/EgbXS25Zk/xc-dashboard?orgId=1&from=1568061779565&to=1568083379567&kiosk'
+    <iframe src='http://121.196.204.61:3000/d/EgbXS25Zk/xc-dashboard?orgId=1&from=1569806402035&to=1569828002035&kiosk'
      width="100%" height="700" frameborder="0"></iframe>
   </div>
 </template>
