@@ -8,14 +8,42 @@
  -->
 <template>
   <div id="app">
-    <div id="nav">
+    <el-container>
+    <el-header>Header</el-header>
+    <el-container>
+      <el-aside width="200px">
+        <el-menu
+      default-active="2"
+      class="el-menu-vertical-demo"
+      background-color="#303133"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+      <el-menu-item :index="menu.name" v-for="(menu, index) in $router.options.routes" :key="index">
+        <i class="el-icon-menu"></i>
+        <span slot="title">{{menu.name}}</span>
+      </el-menu-item>
+    </el-menu>
+    <el-scrollbar style="height:100px;" :wrapStyle="[{'overflow-x':'hidden'}]" :tag="'span'">
       <router-link to="/">Home</router-link> |
       <router-link to="/About">About</router-link> |
       <router-link to="/Xc">xc</router-link> |
       <router-link to="/Grafana">Grafana(page)</router-link>|
-      <router-link to="/Grafana2">Grafana(item)</router-link>
-    </div>
-    <router-view/>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+    </el-scrollbar>
+      </el-aside>
+      <el-main><router-view/></el-main>
+    </el-container>
+  </el-container>
   </div>
 </template>
 
@@ -29,7 +57,6 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
 <script>
@@ -51,7 +78,7 @@ export default {
       });
       console.log(routerList);
       this.$router.addRoutes(routerList);
-
+      console.log(this.$router);
     })
   }
 }
