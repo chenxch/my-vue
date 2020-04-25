@@ -25,13 +25,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "xc" */ `@/views/KeepAlive/index.vue`),
     meta: {
       keepAlive: true,
-      toPath: '/KeepAlive2'
+      toPath: ['/KeepAlive2','/KeepAlive3']
     }
   },
   {
     path: '/KeepAlive2',
     name: 'B',
-    component: () => import(/* webpackChunkName: "xc" */ `@/views/KeepAlive/index2.vue`)
+    component: () => import(/* webpackChunkName: "xc" */ `@/views/KeepAlive/index2.vue`),
+    meta: {
+      keepAlive: true,
+      toPath: ['/KeepAlive3']
+    }
   },
   {
     path: '/KeepAlive3',

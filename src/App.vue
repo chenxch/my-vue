@@ -17,8 +17,8 @@
       class="el-menu-vertical-demo"
       background-color="#303133"
       text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item :index="menu.name" v-for="(menu, index) in $router.options.routes" :key="index">
+      active-text-color="#ffd04b" router>
+      <el-menu-item :index="menu.path" v-for="(menu, index) in $router.options.routes" :key="index">
         <i class="el-icon-menu"></i>
         <span slot="title">{{menu.name}}</span>
       </el-menu-item>
@@ -37,9 +37,9 @@
           <el-breadcrumb-item :to="{ path: item.path }" v-for="item in $store.state.breadcrumbs" :key="item.path">{{item.name}}</el-breadcrumb-item>
         </el-breadcrumb>
         <keep-alive>
-          <keep-router v-if='$route.meta.keepAlive' />
+          <keep-router v-if="$route.meta.keepAlive"/>
         </keep-alive>
-        <router-view v-if='!$route.meta.keepAlive' />
+        <router-view v-if="!$route.meta.keepAlive"/>
       </el-main>
     </el-container>
   </el-container>

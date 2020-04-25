@@ -19,9 +19,10 @@ import i18n from './i18n';
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
+const inToPath = (toPath, path) => (Array.isArray(toPath) ? toPath.includes(path) : false);
 router.beforeEach((to, from, next) => {
-  const refresh = !(to.path === from.meta.toPath || from.path === to.meta.toPath);
-  store.commit('setRefresh', refresh);
+  const refresh = !(inToPath(from.meta.toPath, to.path) || inToPath(to.meta.toPath, from.path));
+  console.log(refresh);
   // 设置导航
   const breadcrumbs = store.state.breadcrumbs;
   const index = breadcrumbs.findIndex((o) => o.path === to.path);
@@ -29,6 +30,7 @@ router.beforeEach((to, from, next) => {
     breadcrumbs.splice(index + 1, breadcrumbs.length - index);
     store.commit('setBreadcrumbs', breadcrumbs);
   }
+  store.commit('setRefresh', refresh);
   next();
 });
 new Vue({

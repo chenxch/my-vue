@@ -1,5 +1,5 @@
 <template>
-  <router-view :v-if="show"></router-view>
+  <router-view v-if="show"></router-view>
 </template>
 <script>
 export default {

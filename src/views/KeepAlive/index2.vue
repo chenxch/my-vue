@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-input v-model="value"></el-input>
-    <!-- <el-button @click="$router.push({path:'/KeepAlive2'})">到三级</el-button> -->
+    <el-button @click="$router.push({path:'/KeepAlive3'})">到C</el-button>
   </div>
 </template>
 <script>

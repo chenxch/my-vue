@@ -18,6 +18,7 @@ export default {
   computed: {},
   methods: {
     init() {
+      // debugger;
       this.$store.commit('setBreadcrumbs', [{ name: 'A', path: '/KeepAlive' }]);
     }
   },
