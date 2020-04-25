@@ -1,6 +1,6 @@
 <!--
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: chenxch
  * @Date: 2019-08-22 23:02:53
  * @LastEditors: chenxch
@@ -10,14 +10,14 @@
   <div class="grafana">
 <!-- <iframe src="http://192.168.7.136:4000/d-solo/l4Qpab5Zz/mysql?orgId=1&from=1568173441141&to=1568195041141&panelId=2" width="650" height="310" frameborder="0"></iframe>
     <div class="grafana-row">
-      <iframe src="http://121.196.204.61:3000/d-solo/EgbXS25Zk/xc-dashboard?orgId=1&from=1568061779565&to=1568083379567&kiosk&panelId=2" height="310" frameborder="0" class="grafana-iframe" @load="xx"></iframe>  
+      <iframe src="http://121.196.204.61:3000/d-solo/EgbXS25Zk/xc-dashboard?orgId=1&from=1568061779565&to=1568083379567&kiosk&panelId=2" height="310" frameborder="0" class="grafana-iframe" @load="xx"></iframe>
       <iframe src="http://121.196.204.61:3000/d-solo/EgbXS25Zk/xc-dashboard?orgId=1&from=1568061779565&to=1568083379567&kiosk&panelId=4" height="310" frameborder="0" class="grafana-iframe"></iframe>
     </div>
     <div class="grafana-row">
       <iframe src="http://121.196.204.61:3000/d-solo/EgbXS25Zk/xc-dashboard?orgId=1&from=1568061779565&to=1568083379567&kiosk&panelId=6" height="310" frameborder="0" class="grafana-iframe"></iframe>
     </div> -->
     <div class="grafana-row" v-for="(grafana, index) in grafanaList" :key="index">
-      <iframe  v-for="item in grafana" :key="item" :src="item" height="310" frameborder="0" class="grafana-iframe" @load="xx"></iframe>  
+      <iframe  v-for="item in grafana" :key="item" :src="item" height="310" frameborder="0" class="grafana-iframe" @load="xx"></iframe>
     </div>
   </div>
 </template>
@@ -26,9 +26,9 @@
 
 export default {
   name: 'Grafana2',
-  data(){
+  data() {
     return {
-      grafanaList:[
+      grafanaList: [
         // [
         //   'http://192.168.7.136:4000/d-solo/l4Qpab5Zz/mysql?orgId=1&from=1568182855857&to=1568204455857&panelId=6',
         //   'http://192.168.7.136:4000/d-solo/l4Qpab5Zz/mysql?orgId=1&from=1568182871276&to=1568204471276&panelId=8',
@@ -58,14 +58,14 @@ export default {
           'http://121.196.204.61:3000/d-solo/EgbXS25Zk/xc-dashboard?orgId=1&from=1569792083922&to=1569813683923&panelId=6'
         ]
       ]
-    }
+    };
   },
-  methods:{
-    xx(){
+  methods: {
+    xx() {
       console.log('我好了');
     }
   }
-}
+};
 </script>
 <style lang="scss">
 .grafana {
@@ -82,7 +82,7 @@ export default {
     }
   }
   &-iframe {
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
     margin-right: 12px;
     flex: 1;
   }

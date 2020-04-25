@@ -1,0 +1,17 @@
+vue.config.js
+mddir.js
+dist/*
+tests/*
+mock/*
+build/*
+output.js
+babel.config.js
+public/jsdoc/*
+docs/*
+webpack.prod.config.js
+public/*
+node_modules/*
+src/app/*
+nightwatch.conf.js
+src/App.vue
+src/router.js

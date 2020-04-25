@@ -1,14 +1,14 @@
 <!--
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: chenxch
  * @Date: 2019-08-22 22:34:50
  * @LastEditors: chenxch
  * @LastEditTime: 2019-09-10 16:07:10
  -->
 <template>
-  <div id="app">
-    <el-container>
+  <div id="app" class="fill">
+    <el-container class="fill">
     <el-header>Header</el-header>
     <el-container>
       <el-aside width="200px">
@@ -23,25 +23,24 @@
         <span slot="title">{{menu.name}}</span>
       </el-menu-item>
     </el-menu>
-    <el-scrollbar style="height:100px;" :wrapStyle="[{'overflow-x':'hidden'}]" :tag="'span'">
+    <el-scrollbar style="height:calc(100% - 58px);" :wrapStyle="[{'overflow-x':'hidden'}]" :tag="'span'">
       <router-link to="/">Home</router-link> |
       <router-link to="/About">About</router-link> |
       <router-link to="/Xc">xc</router-link> |
-      <router-link to="/Grafana">Grafana(page)</router-link>|
+      <router-link to="/Grafana">Grafana(page)</router-link><br>
       <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
-      <router-link to="/Grafana2">Grafana(item)</router-link><br>
+      <router-link to="/KeepAlive">KeepAlive</router-link>
     </el-scrollbar>
       </el-aside>
-      <el-main><router-view/></el-main>
+      <el-main>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item :to="{ path: item.path }" v-for="item in $store.state.breadcrumbs" :key="item.path">{{item.name}}</el-breadcrumb-item>
+        </el-breadcrumb>
+        <keep-alive>
+          <keep-router v-if='$route.meta.keepAlive' />
+        </keep-alive>
+        <router-view v-if='!$route.meta.keepAlive' />
+      </el-main>
     </el-container>
   </el-container>
   </div>
@@ -61,25 +60,32 @@ body{
 </style>
 <script>
 import axios from 'axios';
+import keepRouter from '@/components/keepRouter';0
 
 export default {
-  created(){
-    axios.get('/mock/routerList.json').then(res =>{
-      let routerList = []
-      res.data.forEach(element => {
-          let obj = {
-            path: element.path,
-            name: element.name,
-            // component: map[element.name]
-            component: () => import(/* webpackChunkName: "xc" */ `@/views/${element.name}/index.vue`)
-          }
-          routerList.push(obj);
-          
+  components: {keepRouter},
+  created() {
+    axios.get('/mock/routerList.json').then((res) => {
+      const routerList = [];
+      res.data.forEach((element) => {
+        const obj = {
+          path: element.path,
+          name: element.name,
+          // component: map[element.name]
+          component: () => import(/* webpackChunkName: "xc" */ `@/views/${element.name}/${element.file||'index'}.vue`)
+        };
+        routerList.push(obj);
       });
       console.log(routerList);
       this.$router.addRoutes(routerList);
       console.log(this.$router);
-    })
+    });
   }
-}
+};
 </script>
+<style lang="scss" scoped>
+.fill{
+  width: 100%;
+  height: 100%;
+}
+</style>

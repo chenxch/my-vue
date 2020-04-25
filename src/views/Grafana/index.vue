@@ -1,6 +1,6 @@
 <!--
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: chenxch
  * @Date: 2019-08-22 23:02:53
  * @LastEditors: chenxch
@@ -17,24 +17,24 @@
 
 export default {
   name: 'Grafana',
-  data(){
+  data() {
     return {
       panelList: []
-    }
+    };
   },
   methods: {
     display(e) {
       console.log(e.querySelector('.sidemenu'));
     }
   },
-  mounted(){
+  mounted() {
     // this.$refs.xc.onload = (e)=>{
     //   let a = document.querySelector('.sidemenu');
     //   console.log(e.target.querySelector('sidemenu'));
     // }
     // // console.log(this.$refs.xc.onload);
   }
-}
+};
 </script>
 <style>
 
