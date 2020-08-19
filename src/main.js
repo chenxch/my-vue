@@ -6,6 +6,7 @@
  * @LastEditors: chenxch
  * @LastEditTime: 2019-08-24 01:07:37
  */
+import './set-public-path';
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -13,6 +14,7 @@ import '@/assets/styles/common.scss';
 import '@/assets/styles/reset.scss';
 import './plugins/axios';
 import App from '@/App.vue';
+import singleSpaVue from 'single-spa-vue';
 import router from './router';
 import store from './store';
 import i18n from './i18n';
@@ -33,9 +35,18 @@ router.beforeEach((to, from, next) => {
   store.commit('setRefresh', refresh);
   next();
 });
-new Vue({
+const vueOptions = {
   router,
   store,
   i18n,
   render: (h) => h(App)
-}).$mount('#app');
+};
+new Vue(vueOptions).$mount('#app');
+const vueLifecycles = singleSpaVue({
+  Vue,
+  appOptions: vueOptions
+});
+
+export const bootstrap = vueLifecycles.bootstrap;
+export const mount = vueLifecycles.mount;
+export const unmount = vueLifecycles.unmount;

@@ -1,5 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
+const StatsWriterPlugin= require("stats-webpack-plugin")
 const resolve = (dir) => {
   return path.join(__dirname, dir);
 }
@@ -45,5 +46,15 @@ module.exports = {
         },
       },
     });
+    config.plugins.push(new StatsWriterPlugin('manifest.json', {
+      chunkModules: false,
+      entrypoints: true,
+      source: false,
+      chunks: false,
+      modules: false,
+      assets: false,
+      children: false,
+      exclude: [/node_modules/]
+    }))
   }
 }

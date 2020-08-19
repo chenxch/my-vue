@@ -34,13 +34,21 @@ export default {
       }
     },
     load() {
-      this.$refs.xc.addEventListener('keyup', this.esc);
+      // this.$refs.xc.addEventListener('keyup', this.esc);
       // document.getElementById('xc').contentWindow.addEventListener('keyup', this.esc);
       // document.getElementById('xc').contentWindow.addEventListener('keydown', this.esc);
       // document.getElementById('xc').contentWindow.onkeyup = this.esc;
-      document.getElementById('xc').contentWindow.onkeydown = this.esc;
+      // document.getElementById('xc').contentWindow.onkeydown = this.esc;
       // document.getElementById('xc').addEventListener('click', this.esc);
-      window.addEventListener('keydown', this.esc);
+      // window.addEventListener('keydown', this.esc);
+      document.getElementById('xc').contentWindow.postMessage({ showMenu: false }, '*');
+      // console.log(document.getElementById('xc').contentWindow);
+      // this.post();
+    },
+    post() {
+      console.log(123);
+      window.postMessage({ showMenu: false }, '*');
+      console.log(345);
     }
   },
   mounted() {
